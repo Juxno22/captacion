@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Captación de Clientes | Expo Diagsa</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+  <div class="login-wrap" id="loginWrap">
+    <div class="login-card">
+      <div class="logo-circle">D</div>
+      <h1>Diagsa Automotriz</h1>
+      <p class="subtitle">Captacion de clientes</p>
+
+      <form id="loginForm">
+        <div class="field">
+          <label for="loginUser">Usuario</label>
+          <input type="text" id="loginUser" placeholder="tu.usuario" required>
+        </div>
+        <div class="field">
+          <label for="loginPass">Contraseña</label>
+          <input type="password" id="loginPass" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn-primary">Iniciar sesión</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="app-wrap" id="appWrap">
+    <div class="topbar">
+      <div class="brand"><span class="dot"></span> Captación de Clientes</div>
+      <button class="logout-link" id="logoutBtn">Cerrar sesión</button>
+    </div>
+
+    <div class="card" id="formCard">
+      <h2>Clientes</h2>
+      <p class="desc">Registra la información del cliente a captar</p>
+
+      <form id="clientForm">
+
+        <div class="section-title">Datos del cliente</div>
+        <div class="grid">
+          <div class="field full">
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Ej. Juan Pérez López" required>
+          </div>
+          <div class="field">
+            <label>¿De dónde nos visita?</label>
+            <input type="text" placeholder="Ciudad / Estado">
+          </div>
+          <div class="field">
+            <label>Giro del cliente</label>
+            <input type="text" placeholder="Ej. Refaccionaria, taller...">
+          </div>
+          <div class="field">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="222 123 4567">
+          </div>
+          <div class="field">
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="cliente@correo.com">
+          </div>
+        </div>
+
+        <div class="section-title">Datos de la empresa / negocio</div>
+        <div class="grid">
+          <div class="field full">
+            <label>Razón social</label>
+            <input type="text" placeholder="Nombre legal de la empresa">
+          </div>
+          <div class="field">
+            <label>Persona moral o física</label>
+            <select>
+              <option value="">Selecciona una opción</option>
+              <option>Persona física</option>
+              <option>Persona moral</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Años de la empresa/negocio</label>
+            <input type="number" min="0" placeholder="Ej. 5">
+          </div>
+          <div class="field">
+            <label>Años de experiencia en el rubro automotriz</label>
+            <input type="number" min="0" placeholder="Ej. 8">
+          </div>
+          <div class="field">
+            <label>Cuántas sucursales tiene</label>
+            <input type="number" min="0" placeholder="Ej. 2">
+          </div>
+          <div class="field">
+            <label>Personas que trae a la expo</label>
+            <input type="number" min="1" placeholder="Ej. 3">
+          </div>
+          <div class="field full">
+            <label>Quiénes son sus proveedores actuales</label>
+            <textarea placeholder="Ej. Proveedor A, Proveedor B..."></textarea>
+          </div>
+        </div>
+
+        <div class="section-title">Condiciones comerciales</div>
+        <div class="grid">
+          <div class="field">
+            <label>Método de compra</label>
+            <div class="pill-group">
+              <label class="pill">
+                <input type="radio" name="metodoCompra" value="Contado">
+                <span>Contado</span>
+              </label>
+              <label class="pill">
+                <input type="radio" name="metodoCompra" value="Credito">
+                <span>Crédito</span>
+              </label>
+              <label class="pill">
+                <input type="radio" name="metodoCompra" value="Mixto">
+                <span>Mixto</span>
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Días de plazo (si compra a crédito)</label>
+            <input type="number" min="0" placeholder="Ej. 30">
+          </div>
+        </div>
+
+        <div class="section-title">Sistemas</div>
+        <div class="grid">
+          <div class="field full">
+            <label>Sistemas que trabaja</label>
+            <div class="checkbox-grid">
+              <div class="check-item"><input type="checkbox" id="sisFrenos" name="sistemas" value="Frenos"><label
+                  for="sisFrenos">Frenos</label></div>
+              <div class="check-item"><input type="checkbox" id="sisSuspension" name="sistemas"
+                  value="Suspensión"><label for="sisSuspension">Suspensión</label></div>
+              <div class="check-item"><input type="checkbox" id="sisElectrico" name="sistemas" value="Eléctrico"><label
+                  for="sisElectrico">Eléctrico</label></div>
+              <div class="check-item"><input type="checkbox" id="sisMotor" name="sistemas" value="Motor"><label
+                  for="sisMotor">Motor</label></div>
+              <div class="check-item"><input type="checkbox" id="sisTransmision" name="sistemas"
+                  value="Transmisión"><label for="sisTransmision">Transmisión</label></div>
+              <div class="check-item"><input type="checkbox" id="sisClima" name="sistemas" value="Climatización"><label
+                  for="sisClima">Climatización</label></div>
+              <div class="check-item"><input type="checkbox" id="sisDireccion" name="sistemas" value="Dirección"><label
+                  for="sisDireccion">Dirección</label></div>
+              <div class="check-item"><input type="checkbox" id="sisOtro" name="sistemas" value="Otro"><label
+                  for="sisOtro">Otro</label></div>
+            </div>
+          </div>
+          <div class="field full">
+            <label>Sistema en el que se especializa</label>
+            <input type="text" placeholder="Ej. Frenos y suspensión">
+          </div>
+        </div>
+
+        <div class="section-title">Clasificación del potencial del cliente</div>
+        <div class="field">
+          <div class="pill-group">
+            <label class="pill low">
+              <input type="radio" name="potencial" value="Bajo">
+              <span>Bajo</span>
+            </label>
+            <label class="pill medium">
+              <input type="radio" name="potencial" value="Medio">
+              <span>Medio</span>
+            </label>
+            <label class="pill high">
+              <input type="radio" name="potencial" value="Alto">
+              <span>Alto</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="reset" class="btn-secondary">Limpiar</button>
+          <button type="submit" class="btn-submit">Guardar prospecto</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card success-wrap" id="successCard">
+      <div class="success-icon">✓</div>
+      <h2>Prospecto guardado</h2>
+      <p>La información del cliente se registró correctamente.</p>
+      <button class="btn-submit" id="newClientBtn">Registrar otro cliente</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  const loginForm = document.getElementById('loginForm');
+  const loginWrap = document.getElementById('loginWrap');
+  const appWrap = document.getElementById('appWrap');
+  const logoutBtn = document.getElementById('logoutBtn');
+
+  loginForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    loginWrap.classList.add('hidden');
+    appWrap.classList.add('active');
+  });
+
+  logoutBtn.addEventListener('click', function () {
+    appWrap.classList.remove('active');
+    loginWrap.classList.remove('hidden');
+    loginForm.reset();
+  });
+
+  const clientForm = document.getElementById('clientForm');
+  const formCard = document.getElementById('formCard');
+  const successCard = document.getElementById('successCard');
+  const newClientBtn = document.getElementById('newClientBtn');
+
+  clientForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    formCard.style.display = 'none';
+    successCard.classList.add('active');
+  });
+
+  newClientBtn.addEventListener('click', function () {
+    clientForm.reset();
+    successCard.classList.remove('active');
+    formCard.style.display = 'block';
+  });
+</script>
+
+</html>
