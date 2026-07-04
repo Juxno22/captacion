@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://captacion.up.railway.app/api';
+const API_BASE_URL = 'https://clientes-expo-api.diagsa.cloud/api';
 const ADMIN_STORAGE_KEY = 'adminCodigoEmpleado';
 
 const adminLoginWrap = document.getElementById('adminLoginWrap');
