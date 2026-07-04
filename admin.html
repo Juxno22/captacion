@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captación</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./admin.css">
+    <link rel="icon" href="./logo.ico">
+</head>
+
+<body class="admin-body">
+    <div class="admin-wrap">
+        <div class="topbar admin-topbar">
+            <div class="brand">
+                <span class="dot"></span>
+                Administracion
+            </div>
+
+            <div class="topbar-actions">
+                <a href="./index.html" class="admin-link">Capturar cliente</a>
+                <button class="logout-link" id="refreshBtn">Actualizar</button>
+            </div>
+        </div>
+
+        <section class="admin-hero">
+            <div>
+                <p class="eyebrow">Diagsa Automotriz</p>
+                <h1>Resumen de captación</h1>
+                <p class="hero-desc">
+                    Vista general del día, clientes captados, potencial comercial y desempeño por capturista.
+                </p>
+            </div>
+
+            <div class="date-chip" id="dateChip">Hoy</div>
+        </section>
+
+        <section class="admin-filters card">
+            <div class="filter-grid">
+                <div class="field">
+                    <label>Fecha resumen</label>
+                    <input type="date" id="fechaResumen">
+                </div>
+
+                <div class="field">
+                    <label>Desde</label>
+                    <input type="date" id="fechaDesde">
+                </div>
+
+                <div class="field">
+                    <label>Hasta</label>
+                    <input type="date" id="fechaHasta">
+                </div>
+
+                <div class="field">
+                    <label>Buscar</label>
+                    <input type="text" id="searchInput" placeholder="Cliente, teléfono, giro...">
+                </div>
+
+                <div class="field">
+                    <label>Potencial</label>
+                    <select id="potencialFilter">
+                        <option value="">Todos</option>
+                        <option value="Alto">Alto</option>
+                        <option value="Medio">Medio</option>
+                        <option value="Bajo">Bajo</option>
+                    </select>
+                </div>
+
+                <div class="filter-actions">
+                    <button class="btn-secondary" id="applyFiltersBtn">Aplicar</button>
+                    <button class="btn-submit" id="exportBtn">Exportar Excel</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="card table-card">
+            <div class="table-header">
+                <div>
+                    <h2>Clientes captados</h2>
+                    <p id="tableResume">0 registros</p>
+                </div>
+
+                <div class="pagination-actions">
+                    <button class="btn-secondary" id="prevPageBtn">Anterior</button>
+                    <span id="pageInfo">Página 1</span>
+                    <button class="btn-secondary" id="nextPageBtn">Siguiente</button>
+                </div>
+            </div>
+
+            <div class="table-scroll">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Teléfono</th>
+                            <th>Giro</th>
+                            <th>Origen</th>
+                            <th>Potencial</th>
+                            <th>Compra</th>
+                            <th>Capturista</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prospectosTbody">
+                        <tr>
+                            <td colspan="8">Cargando información...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="kpi-grid">
+            <article class="kpi-card">
+                <span class="kpi-label">Clientes captados</span>
+                <strong id="kpiTotal">0</strong>
+                <small>Registros del día</small>
+            </article>
+
+            <article class="kpi-card">
+                <span class="kpi-label">Potencial alto</span>
+                <strong id="kpiAlto">0</strong>
+                <small>Clientes prioritarios</small>
+            </article>
+
+            <article class="kpi-card">
+                <span class="kpi-label">Capturistas</span>
+                <strong id="kpiCapturistas">0</strong>
+                <small>Activos en el día</small>
+            </article>
+
+            <article class="kpi-card">
+                <span class="kpi-label">Acompañantes</span>
+                <strong id="kpiAcompaniantes">0</strong>
+                <small>Personas adicionales</small>
+            </article>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="card panel-card">
+                <div class="panel-header">
+                    <h2>Potencial</h2>
+                    <span>Clasificación</span>
+                </div>
+
+                <div class="bars">
+                    <div class="bar-row">
+                        <div class="bar-info">
+                            <span>Alto</span>
+                            <strong id="potencialAltoText">0</strong>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill high-fill" id="barAlto"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-row">
+                        <div class="bar-info">
+                            <span>Medio</span>
+                            <strong id="potencialMedioText">0</strong>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill medium-fill" id="barMedio"></div>
+                        </div>
+                    </div>
+
+                    <div class="bar-row">
+                        <div class="bar-info">
+                            <span>Bajo</span>
+                            <strong id="potencialBajoText">0</strong>
+                        </div>
+                        <div class="bar-track">
+                            <div class="bar-fill low-fill" id="barBajo"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card panel-card">
+                <div class="panel-header">
+                    <h2>Método de compra</h2>
+                    <span>Condición comercial</span>
+                </div>
+
+                <div class="mini-list">
+                    <div>
+                        <span>Contado</span>
+                        <strong id="compraContado">0</strong>
+                    </div>
+                    <div>
+                        <span>Crédito</span>
+                        <strong id="compraCredito">0</strong>
+                    </div>
+                    <div>
+                        <span>Mixto</span>
+                        <strong id="compraMixto">0</strong>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card panel-card">
+                <div class="panel-header">
+                    <h2>Captación por empleado</h2>
+                    <span>Top capturistas</span>
+                </div>
+
+                <div class="rank-list" id="capturistasList"></div>
+            </article>
+
+            <article class="card panel-card">
+                <div class="panel-header">
+                    <h2>Giros principales</h2>
+                    <span>Top 10</span>
+                </div>
+
+                <div class="rank-list" id="girosList"></div>
+            </article>
+
+            <article class="card panel-card">
+                <div class="panel-header">
+                    <h2>Origen de visitas</h2>
+                    <span>Ciudades / Estados</span>
+                </div>
+
+                <div class="rank-list" id="origenList"></div>
+            </article>
+
+            <article class="card panel-card">
+                <div class="panel-header">
+                    <h2>Sistemas trabajados</h2>
+                    <span>Interés comercial</span>
+                </div>
+
+                <div class="rank-list" id="sistemasList"></div>
+            </article>
+        </section>
+    </div>
+
+    <script src="./admin.js"></script>
+</body>
+
+</html>
