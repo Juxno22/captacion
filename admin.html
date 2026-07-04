@@ -11,7 +11,23 @@
 </head>
 
 <body class="admin-body">
-    <div class="admin-wrap">
+    <div class="login-wrap admin-login-wrap" id="adminLoginWrap">
+        <div class="login-card">
+            <div class="logo-circle">D</div>
+            <h1>Panel Admin</h1>
+            <p class="subtitle">Ingresa con tu código de empleado</p>
+
+            <form id="adminLoginForm">
+                <div class="field">
+                    <label for="adminCodigoEmpleado">Código Empleado</label>
+                    <input type="text" id="adminCodigoEmpleado" placeholder="AAAA001" name="codigoEmpleado" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Entrar al admin</button>
+            </form>
+        </div>
+    </div>
+    <div class="admin-wrap" id="adminWrap">
         <div class="topbar admin-topbar">
             <div class="brand">
                 <span class="dot"></span>
@@ -19,8 +35,10 @@
             </div>
 
             <div class="topbar-actions">
+                <span class="admin-user-chip" id="adminCodigoDisplay"></span>
                 <a href="./index.html" class="admin-link">Capturar cliente</a>
                 <button class="logout-link" id="refreshBtn">Actualizar</button>
+                <button class="logout-link" id="adminLogoutBtn">Salir</button>
             </div>
         </div>
 

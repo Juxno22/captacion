@@ -1,4 +1,12 @@
 const API_BASE_URL = 'http://localhost:4000/api';
+const ADMIN_STORAGE_KEY = 'adminCodigoEmpleado';
+
+const adminLoginWrap = document.getElementById('adminLoginWrap');
+const adminWrap = document.getElementById('adminWrap');
+const adminLoginForm = document.getElementById('adminLoginForm');
+const adminCodigoEmpleado = document.getElementById('adminCodigoEmpleado');
+const adminCodigoDisplay = document.getElementById('adminCodigoDisplay');
+const adminLogoutBtn = document.getElementById('adminLogoutBtn');
 
 const fechaResumen = document.getElementById('fechaResumen');
 const fechaDesde = document.getElementById('fechaDesde');
@@ -76,6 +84,41 @@ function getBadgeClass(value) {
 
 function setText(element, value) {
     element.textContent = value ?? 0;
+}
+
+function mostrarAdmin(codigoEmpleado) {
+    adminCodigoDisplay.textContent = codigoEmpleado;
+
+    adminLoginWrap.classList.add('hidden');
+    adminWrap.classList.add('active');
+}
+
+function mostrarLoginAdmin() {
+    adminWrap.classList.remove('active');
+    adminLoginWrap.classList.remove('hidden');
+
+    adminCodigoEmpleado.value = '';
+    adminCodigoDisplay.textContent = '';
+
+    localStorage.removeItem(ADMIN_STORAGE_KEY);
+}
+
+async function loginAdmin(codigoEmpleado) {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ codigoEmpleado })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'No se pudo iniciar sesión.');
+    }
+
+    return data;
 }
 
 function getFiltros() {
@@ -197,7 +240,7 @@ async function cargarProspectos() {
             q: filtros.q,
             potencial: filtros.potencial,
             page: currentPage,
-            limit: 5
+            limit: 20
         })}`
     );
 
@@ -280,7 +323,46 @@ window.addEventListener('DOMContentLoaded', () => {
     fechaDesde.value = today;
     fechaHasta.value = today;
 
-    cargarDashboard();
+    const savedCodigo = localStorage.getItem(ADMIN_STORAGE_KEY);
+
+    if (savedCodigo) {
+        mostrarAdmin(savedCodigo);
+        cargarDashboard();
+    }
+});
+
+adminLoginForm.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const codigoEmpleado = adminCodigoEmpleado.value.trim().toUpperCase();
+
+    if (!codigoEmpleado) {
+        alert('Ingresa tu código de empleado.');
+        return;
+    }
+
+    const submitBtn = adminLoginForm.querySelector('button[type="submit"]');
+
+    try {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Validando...';
+
+        await loginAdmin(codigoEmpleado);
+
+        localStorage.setItem(ADMIN_STORAGE_KEY, codigoEmpleado);
+
+        mostrarAdmin(codigoEmpleado);
+        cargarDashboard();
+    } catch (error) {
+        alert(error.message);
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Entrar al admin';
+    }
+});
+
+adminLogoutBtn.addEventListener('click', () => {
+    mostrarLoginAdmin();
 });
 
 refreshBtn.addEventListener('click', () => {

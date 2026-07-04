@@ -399,3 +399,47 @@
     gap: 10px;
   }
 }
+.admin-login-wrap {
+  min-height: calc(100vh - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: none;
+}
+
+.admin-login-wrap.hidden {
+  display: none;
+}
+
+.admin-wrap {
+  display: none;
+}
+
+.admin-wrap.active {
+  display: block;
+}
+
+.admin-user-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 680px) {
+  .admin-user-chip {
+    width: 100%;
+  }
+
+  .topbar-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
