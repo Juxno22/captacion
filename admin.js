@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:4000/api';
+const API_BASE_URL = 'https://captacion.up.railway.app/api';
 const ADMIN_STORAGE_KEY = 'adminCodigoEmpleado';
 
 const adminLoginWrap = document.getElementById('adminLoginWrap');
