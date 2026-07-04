@@ -4,26 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Captación de Clientes | Expo Diagsa</title>
+  <title>Captación de Clientes</title>
   <link rel="stylesheet" href="./index.css">
+  <link rel="icon" href="./logo.ico">
 </head>
 
 <body>
-
   <div class="login-wrap" id="loginWrap">
     <div class="login-card">
       <div class="logo-circle">D</div>
       <h1>Diagsa Automotriz</h1>
-      <p class="subtitle">Captacion de clientes</p>
-
+      <p class="subtitle">Acceso</p>
       <form id="loginForm">
         <div class="field">
-          <label for="loginUser">Usuario</label>
-          <input type="text" id="loginUser" placeholder="tu.usuario" required>
-        </div>
-        <div class="field">
-          <label for="loginPass">Contraseña</label>
-          <input type="password" id="loginPass" placeholder="••••••••" required>
+          <label for="codigoEmpleado">Codigo Empleado</label>
+          <input type="text" id="codigoEmpleado" placeholder="AAAA001" name="codigoEmpleado" required>
         </div>
         <button type="submit" class="btn-primary">Iniciar sesión</button>
       </form>
@@ -32,37 +27,39 @@
 
   <div class="app-wrap" id="appWrap">
     <div class="topbar">
-      <div class="brand"><span class="dot"></span> Captación de Clientes</div>
+      <div class="brand"><span class="dot"></span> Captación de Clientes</div> 
       <button class="logout-link" id="logoutBtn">Cerrar sesión</button>
     </div>
 
     <div class="card" id="formCard">
-      <h2>Clientes</h2>
-      <p class="desc">Registra la información del cliente a captar</p>
-
+      <div class="headers">
+        <h2>Codigo del capturista: </h2>
+        <h2>
+          <div class="codigoDisplay" id="codigoDisplay"></div>
+        </h2>
+      </div>
       <form id="clientForm">
-
         <div class="section-title">Datos del cliente</div>
         <div class="grid">
           <div class="field full">
             <label>Nombre completo</label>
-            <input type="text" placeholder="Ej. Juan Pérez López" required>
+            <input type="text" placeholder="Ej. Juan Pérez López" name="nombreCliente" required>
           </div>
           <div class="field">
             <label>¿De dónde nos visita?</label>
-            <input type="text" placeholder="Ciudad / Estado">
+            <input type="text" placeholder="Ciudad / Estado" name="origen" required>
           </div>
           <div class="field">
             <label>Giro del cliente</label>
-            <input type="text" placeholder="Ej. Refaccionaria, taller...">
+            <input type="text" placeholder="Ej. Refaccionaria, taller..." name="giro" required>
           </div>
           <div class="field">
             <label>Teléfono</label>
-            <input type="tel" placeholder="222 123 4567">
+            <input type="tel" placeholder="2221234567" name="telefono" required>
           </div>
           <div class="field">
             <label>Correo electrónico</label>
-            <input type="email" placeholder="cliente@correo.com">
+            <input type="email" placeholder="cliente@correo.com" name="email">
           </div>
         </div>
 
@@ -70,35 +67,35 @@
         <div class="grid">
           <div class="field full">
             <label>Razón social</label>
-            <input type="text" placeholder="Nombre legal de la empresa">
+            <input type="text" placeholder="Nombre legal de la empresa / negocio" name="razonSocial">
           </div>
           <div class="field">
             <label>Persona moral o física</label>
-            <select>
+            <select name="tipoPersona">
               <option value="">Selecciona una opción</option>
-              <option>Persona física</option>
-              <option>Persona moral</option>
+              <option value="personaFisica">Persona física</option>
+              <option value="personaMoral">Persona moral</option>
             </select>
           </div>
           <div class="field">
             <label>Años de la empresa/negocio</label>
-            <input type="number" min="0" placeholder="Ej. 5">
+            <input type="number" min="0" placeholder="Ej. 5" name="aniosEmpresa">
           </div>
           <div class="field">
             <label>Años de experiencia en el rubro automotriz</label>
-            <input type="number" min="0" placeholder="Ej. 8">
+            <input type="number" min="0" placeholder="Ej. 8" name="aniosExperiencia">
           </div>
           <div class="field">
             <label>Cuántas sucursales tiene</label>
-            <input type="number" min="0" placeholder="Ej. 2">
+            <input type="number" min="0" placeholder="Ej. 2" name="sucursales">
           </div>
           <div class="field">
             <label>Personas que trae a la expo</label>
-            <input type="number" min="1" placeholder="Ej. 3">
+            <input type="number" min="1" placeholder="Ej. 3" name="acompaniantes">
           </div>
           <div class="field full">
             <label>Quiénes son sus proveedores actuales</label>
-            <textarea placeholder="Ej. Proveedor A, Proveedor B..."></textarea>
+            <textarea placeholder="Ej. Proveedor A, Proveedor B..." name="proveedores"></textarea>
           </div>
         </div>
 
@@ -123,7 +120,7 @@
           </div>
           <div class="field">
             <label>Días de plazo (si compra a crédito)</label>
-            <input type="number" min="0" placeholder="Ej. 30">
+            <input type="number" min="0" placeholder="Ej. 30" name="diasPlazo">
           </div>
         </div>
 
@@ -132,27 +129,31 @@
           <div class="field full">
             <label>Sistemas que trabaja</label>
             <div class="checkbox-grid">
-              <div class="check-item"><input type="checkbox" id="sisFrenos" name="sistemas" value="Frenos"><label
-                  for="sisFrenos">Frenos</label></div>
+              <div class="check-item"><input type="checkbox" id="sisEnfriamiento" name="sistemas"
+                  value="enfriamiento"><label for="sisEnfriamiento">Enfriamiento</label></div>
+              <div class="check-item"><input type="checkbox" id="sisRodamiento" name="sistemas"
+                  value="rodamiento"><label for="sisRodamiento">Rodamiento</label></div>
               <div class="check-item"><input type="checkbox" id="sisSuspension" name="sistemas"
-                  value="Suspensión"><label for="sisSuspension">Suspensión</label></div>
-              <div class="check-item"><input type="checkbox" id="sisElectrico" name="sistemas" value="Eléctrico"><label
-                  for="sisElectrico">Eléctrico</label></div>
-              <div class="check-item"><input type="checkbox" id="sisMotor" name="sistemas" value="Motor"><label
-                  for="sisMotor">Motor</label></div>
+                  value="suspension"><label for="sisSuspension">Suspension</label></div>
+              <div class="check-item"><input type="checkbox" id="sisFrenos" name="sistemas" value="frenos"><label
+                  for="sisFrenos">Frenos</label></div>
+              <div class="check-item"><input type="checkbox" id="sisDireccion" name="sistemas" value="direccion"><label
+                  for="sisDireccion">Direccion</label></div>
               <div class="check-item"><input type="checkbox" id="sisTransmision" name="sistemas"
-                  value="Transmisión"><label for="sisTransmision">Transmisión</label></div>
-              <div class="check-item"><input type="checkbox" id="sisClima" name="sistemas" value="Climatización"><label
-                  for="sisClima">Climatización</label></div>
-              <div class="check-item"><input type="checkbox" id="sisDireccion" name="sistemas" value="Dirección"><label
-                  for="sisDireccion">Dirección</label></div>
+                  value="transmision"><label for="sisTransmision">Transmision</label></div>
+              <div class="check-item"><input type="checkbox" id="sisElectrico" name="sistemas" value="electrico"><label
+                  for="sisElectrico">Electrico</label></div>
+              <div class="check-item"><input type="checkbox" id="sisClimatizacion" name="sistemas"
+                  value="climatizacion"><label for="sisClimatizacion">Climatizacion</label></div>
+              <div class="check-item"><input type="checkbox" id="sisMotor" name="sistemas" value="motor"><label
+                  for="sisMotor">Motor</label></div>
               <div class="check-item"><input type="checkbox" id="sisOtro" name="sistemas" value="Otro"><label
                   for="sisOtro">Otro</label></div>
             </div>
           </div>
           <div class="field full">
             <label>Sistema en el que se especializa</label>
-            <input type="text" placeholder="Ej. Frenos y suspensión">
+            <input type="text" placeholder="Ej. Frenos y suspensión" name="especializacion" required>
           </div>
         </div>
 
@@ -188,42 +189,7 @@
       <button class="btn-submit" id="newClientBtn">Registrar otro cliente</button>
     </div>
   </div>
+  <script src="./index.js"></script>
 </body>
-
-<script>
-  const loginForm = document.getElementById('loginForm');
-  const loginWrap = document.getElementById('loginWrap');
-  const appWrap = document.getElementById('appWrap');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  loginForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    loginWrap.classList.add('hidden');
-    appWrap.classList.add('active');
-  });
-
-  logoutBtn.addEventListener('click', function () {
-    appWrap.classList.remove('active');
-    loginWrap.classList.remove('hidden');
-    loginForm.reset();
-  });
-
-  const clientForm = document.getElementById('clientForm');
-  const formCard = document.getElementById('formCard');
-  const successCard = document.getElementById('successCard');
-  const newClientBtn = document.getElementById('newClientBtn');
-
-  clientForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    formCard.style.display = 'none';
-    successCard.classList.add('active');
-  });
-
-  newClientBtn.addEventListener('click', function () {
-    clientForm.reset();
-    successCard.classList.remove('active');
-    formCard.style.display = 'block';
-  });
-</script>
 
 </html>
