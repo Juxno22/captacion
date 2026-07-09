@@ -131,6 +131,7 @@ clientForm.addEventListener('submit', async function (event) {
   }
 
   const formData = new FormData(clientForm);
+  const sistemaSeleccionado = formData.get('sistemas');
 
   const payload = {
     codigoEmpleado,
@@ -138,18 +139,18 @@ clientForm.addEventListener('submit', async function (event) {
     origen: formData.get('origen'),
     giro: formData.get('giro'),
     telefono: formData.get('telefono'),
-    email: formData.get('email'),
+    email: null,
     razonSocial: formData.get('razonSocial'),
-    tipoPersona: formData.get('tipoPersona'),
-    aniosEmpresa: formData.get('aniosEmpresa'),
-    aniosExperiencia: formData.get('aniosExperiencia'),
+    tipoPersona: null,
+    aniosEmpresa: null,
+    aniosExperiencia: null,
     sucursales: formData.get('sucursales'),
-    acompaniantes: formData.get('acompaniantes'),
+    acompaniantes: null,
     proveedores: formData.get('proveedores'),
     metodoCompra: formData.get('metodoCompra'),
     diasPlazo: formData.get('diasPlazo'),
-    sistemas: formData.getAll('sistemas'),
-    especializacion: formData.get('especializacion'),
+    sistemas: sistemaSeleccionado ? [sistemaSeleccionado] : [],
+    especializacion: sistemaSeleccionado,
     potencial: formData.get('potencial')
   };
 

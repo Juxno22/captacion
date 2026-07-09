@@ -57,43 +57,19 @@
             <label>Teléfono</label>
             <input type="tel" placeholder="2221234567" name="telefono" required>
           </div>
-          <div class="field">
-            <label>Correo electrónico</label>
-            <input type="email" placeholder="cliente@correo.com" name="email">
-          </div>
         </div>
 
         <div class="section-title">Datos de la empresa / negocio</div>
         <div class="grid">
           <div class="field full">
-            <label>Razón social</label>
-            <input type="text" placeholder="Nombre legal de la empresa / negocio" name="razonSocial">
-          </div>
-          <div class="field">
-            <label>Persona moral o física</label>
-            <select name="tipoPersona">
-              <option value="">Selecciona una opción</option>
-              <option value="personaFisica">Persona física</option>
-              <option value="personaMoral">Persona moral</option>
-            </select>
-          </div>
-          <div class="field">
-            <label>Años de la empresa/negocio</label>
-            <input type="number" min="0" placeholder="Ej. 5" name="aniosEmpresa">
-          </div>
-          <div class="field">
-            <label>Años de experiencia en el rubro automotriz</label>
-            <input type="number" min="0" placeholder="Ej. 8" name="aniosExperiencia">
+            <label>Razón social / Nombre del negocio</label>
+            <input type="text" placeholder="Nombre de la empresa / negocio" name="razonSocial">
           </div>
           <div class="field">
             <label>Cuántas sucursales tiene</label>
             <input type="number" min="0" placeholder="Ej. 2" name="sucursales">
           </div>
           <div class="field">
-            <label>Personas que trae a la expo</label>
-            <input type="number" min="1" placeholder="Ej. 3" name="acompaniantes">
-          </div>
-          <div class="field full">
             <label>Quiénes son sus proveedores actuales</label>
             <textarea placeholder="Ej. Proveedor A, Proveedor B..." name="proveedores"></textarea>
           </div>
@@ -127,39 +103,25 @@
         <div class="section-title">Sistemas</div>
         <div class="grid">
           <div class="field full">
-            <label>Sistemas que trabaja</label>
-            <div class="checkbox-grid">
-              <div class="check-item"><input type="checkbox" id="sisEnfriamiento" name="sistemas"
-                  value="enfriamiento"><label for="sisEnfriamiento">Enfriamiento</label></div>
-              <div class="check-item"><input type="checkbox" id="sisRodamiento" name="sistemas"
-                  value="rodamiento"><label for="sisRodamiento">Rodamiento</label></div>
-              <div class="check-item"><input type="checkbox" id="sisSuspension" name="sistemas"
-                  value="suspension"><label for="sisSuspension">Suspension</label></div>
-              <div class="check-item"><input type="checkbox" id="sisFrenos" name="sistemas" value="frenos"><label
-                  for="sisFrenos">Frenos</label></div>
-              <div class="check-item"><input type="checkbox" id="sisDireccion" name="sistemas" value="direccion"><label
-                  for="sisDireccion">Direccion</label></div>
-              <div class="check-item"><input type="checkbox" id="sisTransmision" name="sistemas"
-                  value="transmision"><label for="sisTransmision">Transmision</label></div>
-              <div class="check-item"><input type="checkbox" id="sisElectrico" name="sistemas" value="electrico"><label
-                  for="sisElectrico">Electrico</label></div>
-              <div class="check-item"><input type="checkbox" id="sisClimatizacion" name="sistemas"
-                  value="climatizacion"><label for="sisClimatizacion">Climatizacion</label></div>
-              <div class="check-item"><input type="checkbox" id="sisMotor" name="sistemas" value="motor"><label
-                  for="sisMotor">Motor</label></div>
-              <div class="check-item"><input type="checkbox" id="sisCarroceria" name="sistemas" value="carrocerias"><label
-                  for="sisCarroceria">Carrocerias</label></div>
-              <div class="check-item"><input type="checkbox" id="sisLubricantes" name="sistemas" value="lubricantes"><label
-                  for="sisLubricantes">Lubricantes</label></div>
-              <div class="check-item"><input type="checkbox" id="sisAceites" name="sistemas" value="aceites"><label
-                  for="sisAceites">Aceites y quimicos</label></div>
-              <div class="check-item"><input type="checkbox" id="sisOtro" name="sistemas" value="Otro"><label
-                  for="sisOtro">Otro</label></div>
-            </div>
-          </div>
-          <div class="field full">
-            <label>Sistema en el que se especializa</label>
-            <input type="text" placeholder="Ej. Frenos y suspensión" name="especializacion" required>
+            <label>Sistema que trabaja</label>
+            <select name="sistemas" required>
+              <option value="">Selecciona una opción</option>
+              <option value="Mecánico en general">Mecánico en general</option>
+              <option value="Refaccionaria en general">Refaccionaria en general</option>
+              <option value="Enfriamiento">Enfriamiento</option>
+              <option value="Rodamiento">Rodamiento</option>
+              <option value="Suspensión">Suspensión</option>
+              <option value="Frenos">Frenos</option>
+              <option value="Dirección">Dirección</option>
+              <option value="Transmisión">Transmisión</option>
+              <option value="Eléctrico">Eléctrico</option>
+              <option value="Climatización">Climatización</option>
+              <option value="Motor">Motor</option>
+              <option value="Carrocerías">Carrocerías</option>
+              <option value="Lubricantes">Lubricantes</option>
+              <option value="Aceites y químicos">Aceites y químicos</option>
+              <option value="Otro">Otro</option>
+            </select>
           </div>
         </div>
 
